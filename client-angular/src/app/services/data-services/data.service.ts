@@ -45,4 +45,17 @@ export class DataService {
       }
     );
   }
+
+  public getLabels(): void {
+    this.httpClient.get("http://localhost:3001/labels").subscribe(
+      (res) => {
+        /*Si le serveur retourne un succès, on a dans "res" la donnée envoyée par le serveur*/
+        console.log(res);
+      },
+      (error) => {
+        /*Si le serveur retourne une erreur, on dans "error" le descriptif de l'erreur (code de status, message de status)*/
+        console.log(error);
+      }
+    );
+  }
 }
